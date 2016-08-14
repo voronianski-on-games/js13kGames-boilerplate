@@ -1,10 +1,17 @@
 {
-  "name": "no-name-game",
+  "name": "voronianski-js13k-2016",
   "version": "1.0.0",
   "description": "---",
   "main": "dist/bundle.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rm -rf build/; mkdir -p build",
+    "build": "NODE_ENV=production webpack --config webpack.config --progress --colors",
+    "watch": "webpack --config webpack.config --colors --watch",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "zip": "cd build; zip -r ../build.zip .; cd ..; wc -c build.zip",
+    "lint": "eslint ./src --fix",
+    "package": "npm run clean && npm run build && npm run zip",
+    "prepush": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -15,5 +22,12 @@
   "bugs": {
     "url": "https://github.com/voronianski-on-games/js13kGames-2016/issues"
   },
-  "homepage": "https://github.com/voronianski-on-games/js13kGames-2016#readme"
+  "homepage": "https://github.com/voronianski-on-games/js13kGames-2016#readme",
+  "devDependencies": {
+    "compression-webpack-plugin": "^0.3.1",
+    "eslint": "^3.3.0",
+    "html-webpack-plugin": "^2.22.0",
+    "husky": "^0.11.6",
+    "webpack": "^1.13.1"
+  }
 }
