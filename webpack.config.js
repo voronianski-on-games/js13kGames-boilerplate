@@ -4,19 +4,18 @@ var env = process.env.NODE_ENV || 'development';
 var webpack = require('webpack');
 var path = require('path');
 var HtmlPlugin = require('html-webpack-plugin');
+var isProduction = env === 'production';
 
 var plugins = [
   new webpack.DefinePlugin({
-    'process.env': {
-      'NODE_ENV': JSON.stringify(env)
-    }
+    'PRODUCTION': isProduction
   }),
   new HtmlPlugin({
     title: 'voronianski-js13k'
   })
 ];
 
-if ('production' === env) {
+if (isProduction) {
   plugins = plugins.concat([
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.DedupePlugin(),

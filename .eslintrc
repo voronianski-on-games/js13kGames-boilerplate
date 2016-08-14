@@ -40,5 +40,9 @@
     "spaced-comment": 0,
     "prefer-rest-params": 0,
     "no-unreachable": 0
+  },
+
+  globals: {
+    "PRODUCTION": true
   }
 }

@@ -25,9 +25,14 @@
   "homepage": "https://github.com/voronianski-on-games/js13kGames-2016#readme",
   "devDependencies": {
     "compression-webpack-plugin": "^0.3.1",
+    "envify": "^3.4.1",
     "eslint": "^3.3.0",
     "html-webpack-plugin": "^2.22.0",
     "husky": "^0.11.6",
+    "transform-loader": "^0.2.3",
     "webpack": "^1.13.1"
+  },
+  "dependencies": {
+    "stats.js": "^0.16.0"
   }
 }
