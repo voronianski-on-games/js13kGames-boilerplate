@@ -1,4 +1,4 @@
-# <img src="http://2016.js13kgames.com/img/logo.png" height="30" /> Entry for [js13kGames 2016](http://2016.js13kgames.com/#rules)
+# <img src="http://2016.js13kgames.com/img/logo.png" height="50" /> Entry for [js13kGames 2016](http://2016.js13kgames.com/#rules)
 
 ## Development
 
