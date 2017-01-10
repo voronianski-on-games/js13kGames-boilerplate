@@ -17,26 +17,25 @@ function raf (fn) {
     stats && stats.begin();
 
     var now = timestamp();
-    var elapsed = now - lastTime;
+    var dt = now - lastTime;
 
-
-    if (elapsed > 999) {
-      elapsed = 1 / 60;
+    if (dt > 999) {
+      dt = 1 / 60;
     } else {
-      elapsed /= 1000;
+      dt /= 1000;
     }
 
     lastTime = now;
 
-    fn(elapsed);
+    fn(dt);
 
     stats && stats.end();
   });
 }
 
 exports.start = function (fn) {
-  return raf(function tick (elapsed) {
-    fn(elapsed);
+  return raf(function tick (dt) {
+    fn(dt);
     raf(tick);
   });
 };

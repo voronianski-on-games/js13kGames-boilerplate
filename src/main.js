@@ -1,54 +1,58 @@
 var loop = require('./loop');
 var rand = require('./rand');
+var key = require('./key');
 
 var canvas = document.createElement('canvas');
 canvas.width = 800;
 canvas.height = 600;
+canvas.style.backgroundColor = '#000';
 document.body.appendChild(canvas);
 
 var ctx = canvas.getContext('2d');
-var balls = [];
-var colors = [
-  '#7FDBFF', '#0074D9', '#01FF70', '#001F3F',
-  '#39CCCC', '#3D9970', '#2ECC40', '#FF4136',
-  '#85144B', '#FF851B', '#B10DC9', '#FFDC00',
-  '#F012BE'
-];
 
-for (var i = 0; i < 50; i++) {
-  balls.push({
-    x: rand.int(canvas.width),
-    y: rand.int(canvas.height / 2),
-    radius: rand.range(15, 35),
-    dx: rand.range(-100, 100),
-    dy: 0,
-    color: rand.pick(colors)
-  });
-}
+// demo entity
+var mob = {
+  x: rand.int(canvas.width),
+  y: rand.int(canvas.height),
+  width: 25,
+  height: 25,
+  speed: 150,
+  color: 'rgba(236, 94, 103, 1)'
+};
 
-loop.start(function (elapsed) {
+// game loop
+loop.start(function (dt) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Update each balls
-  balls.forEach(function (ball) {
-    // Gravity
-    ball.dy += elapsed * 1500;
+  // update mob
+  if (key.isDown(key.LEFT)) {
+    mob.x = mob.x - (mob.speed * dt);
+  }
+  if (key.isDown(key.RIGHT)) {
+    mob.x = mob.x + (mob.speed * dt);
+  }
+  if (key.isDown(key.UP)) {
+    mob.y = mob.y - (mob.speed * dt);
+  }
+  if (key.isDown(key.DOWN)) {
+    mob.y = mob.y + (mob.speed * dt);
+  }
 
-    // Handle collision against the canvas's edges
-    if (ball.x - ball.radius < 0 && ball.dx < 0 || ball.x + ball.radius > canvas.width && ball.dx > 0) ball.dx = -ball.dx * 0.7;
-    if (ball.y - ball.radius < 0 && ball.dy < 0 || ball.y + ball.radius > canvas.height && ball.dy > 0) ball.dy = -ball.dy * 0.7;
+  // check bounds collisions
+  if (mob.x < 0) {
+    mob.x = canvas.width;
+  } else if (mob.x > canvas.width) {
+    mob.x = 0;
+  }
+  if (mob.y < 0) {
+    mob.y = canvas.height;
+  } else if (mob.y > canvas.height) {
+    mob.y = 0;
+  }
 
-    // Update ball position
-    ball.x += ball.dx * elapsed;
-    ball.y += ball.dy * elapsed;
+  // draw mob
+  ctx.fillStyle = mob.color;
+  ctx.fillRect(mob.x, mob.y, mob.width, mob.height);
 
-    // Render the ball
-    ctx.beginPath();
-    ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2, true);
-    ctx.closePath();
-    ctx.fillStyle = ball.color;
-    ctx.fill();
-  });
-
-  console.log('game update fn %s', elapsed);
+  console.log('game update fn %s', dt);
 });
