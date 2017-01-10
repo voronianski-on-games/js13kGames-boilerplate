@@ -3,8 +3,8 @@ var rand = require('./rand');
 var key = require('./key');
 
 var canvas = document.createElement('canvas');
-canvas.width = 800;
-canvas.height = 600;
+canvas.width = 640;
+canvas.height = 480;
 canvas.style.backgroundColor = '#000';
 document.body.appendChild(canvas);
 

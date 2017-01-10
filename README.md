@@ -2,6 +2,8 @@
 
 > Minimum game starter kit, perfect for [js13kGames](http://js13kgames.com) compo.
 
+<img src="https://github.com/voronianski-on-games/asteroids-on-steroids-love2d/raw/master/demo.gif" width="300" />
+
 ## What's inside?
 
 - [raf](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) based game loop
