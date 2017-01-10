@@ -9,9 +9,10 @@ document.body.appendChild(canvas);
 var ctx = canvas.getContext('2d');
 var balls = [];
 var colors = [
-  '#7FDBFF', '#0074D9', '#01FF70', '#001F3F', '#39CCCC',
-  '#3D9970', '#2ECC40', '#FF4136', '#85144B', '#FF851B',
-  '#B10DC9', '#FFDC00', '#F012BE'
+  '#7FDBFF', '#0074D9', '#01FF70', '#001F3F',
+  '#39CCCC', '#3D9970', '#2ECC40', '#FF4136',
+  '#85144B', '#FF851B', '#B10DC9', '#FFDC00',
+  '#F012BE'
 ];
 
 for (var i = 0; i < 50; i++) {
@@ -28,7 +29,7 @@ for (var i = 0; i < 50; i++) {
 loop.start(function (elapsed) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Update each balls
+  // Update each balls
   balls.forEach(function (ball) {
     // Gravity
     ball.dy += elapsed * 1500;

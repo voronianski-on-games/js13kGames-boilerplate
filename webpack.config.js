@@ -1,9 +1,10 @@
 'use strict';
 
-var env = process.env.NODE_ENV || 'development';
 var webpack = require('webpack');
 var path = require('path');
 var HtmlPlugin = require('html-webpack-plugin');
+
+var env = process.env.NODE_ENV || 'development';
 var isProduction = env === 'production';
 
 var plugins = [
@@ -11,7 +12,7 @@ var plugins = [
     'PRODUCTION': isProduction
   }),
   new HtmlPlugin({
-    title: 'voronianski-js13k'
+    title: 'js13k-boilerplate'
   })
 ];
 
