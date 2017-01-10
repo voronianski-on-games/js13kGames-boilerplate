@@ -2,7 +2,7 @@
 
 > Minimum game starter kit, perfect for [js13kGames](http://js13kgames.com) compo.
 
-<img src="https://github.com/voronianski-on-games/asteroids-on-steroids-love2d/raw/master/demo.gif" width="300" />
+<img src="https://github.com/voronianski-on-games/js13kGames-boilerplate/raw/master/demo.gif" width="300" />
 
 ## What's inside?
 
