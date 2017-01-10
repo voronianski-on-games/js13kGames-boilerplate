@@ -12,7 +12,7 @@
 - basic utility for handling keyboard interactions
 - [webpack](https://webpack.js.org) configuration for development and easy packaging of the game into `.zip` file
 
-Everything else is up to you and your needs. If you will participate in _js13kGames_ competition then it's better to draw your game entities directly with [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) to save some bytes and fit the [rules](http://js13kgames.com/#rules). If it's not a case this project perfectly fits as a starter kit for a regular HTML5 game and you're welcome to use some complex rendering solutions like [PIXI.js](https://github.com/pixijs/pixi.js). 
+Everything else is up to you and your needs. If you will participate in _js13kGames_ competition then it's better to draw your game entities directly with [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) to save some bytes and fit the [rules](http://js13kgames.com/#rules). If it's not a case this project perfectly fits as a starter kit for a regular HTML5 game and you're welcome to use some complex rendering solutions like [PIXI.js](https://github.com/pixijs/pixi.js), etc. 
 
 ## Development
 
